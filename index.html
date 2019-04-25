@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Case Study</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="score" style="position: absolute; top: 20px; left: 1020px;"></div>
+
+<canvas id="canvas" width="1000" height="500"></canvas><br/>
+<button id="start" onclick="paint()">START</button>
+<p>click Start : 1st-play, 2nd or time speed up</p>
+<p>click F5 : Restart</p>
+<script>
+  function paint () {
+    if (gameOver === false) {
+      clear();
+      createCircle();
+      handleCollisionBall();
+      processingMovesBall();
+      processingMovesBars();
+      paintBars();
+      paintBricks();
+      handleCollisionBars();
+      movesBars();
+      handleCollisionBars();
+      handleCollisionStone();
+      displayScore();
+      checkGameOver();
+      requestAnimationFrame(paint);
+    } else {
+      mess ();
+    }
+  }
+</script>
+<script src="function.js"></script>
+<script src="java.js"></script>
+</body>
+</html>
